@@ -108,8 +108,23 @@
 	     Menu
 	</section>     
 	<section  id="javascript" class="sectionpar">
-      <h2>Dinamicidade com javascript</h2>	 
-	     Javascript
+      
+	  <p>Adicione o seguinte código js para criar um resize de acordo com o tamanho da tela do usuário</p>
+	  <code> 	  
+		function resizeHeight(){<br>	 
+			var height = window.innerHeight*0.8;<br>	 
+			console.log(height);<br>	 
+			var sections  = document.getElementsByTagName("section");		 <br>	 
+			var i;<br>	 
+			for (i = 0; i < sections.length; i++) {<br>	 
+				sections[i].style.height  = height;<br>	 
+				console.log("indice:" +i);<br>	 
+			}		  	 <br>	 
+			}<br>	 
+		window.addEventListener("resize", resizeHeight);	 	<br>	 
+    </code> 	 
+	  
+	  
 	</section>			
  	<section class="sectionimpar" style="height: 400px;">
       <h2>Login</h2>	  
