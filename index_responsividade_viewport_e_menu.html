@@ -1,84 +1,129 @@
 
 <html>
 <head>
-
+<meta name="viewport" content="width=device-width, initial-scale=1"/>
 
 
 <style>
 
-	body {margin:0;}
-		.navbar {
-		  overflow: hidden;
+@media only screen and (max-width: 360px) {
+  	.navbar {           		 
+  		  height: 100%;
+		  width: 0;
+		  position: fixed;
+		  z-index: 1;
+		  top: 0;
+		  left: 0;
+		  background-color: #111;
+		  overflow-x: hidden;
+		  transition: 0.5s;
+		  padding-top: 20px;		  
+		}		
+		.navbar a {
+   	        padding: 4px 4px 4px 32px;
+			text-decoration: none;
+			font-size: 20px;
+			color: #818181;
+			display: block;
+			transition: 0.3s;
+		}
+		.navbar a:hover {
+		  background: #ddd;
+		  color: black;
+		}  
+
+        .navbar .closebtn {
+          position: absolute;
+          top: 0;
+		  display: block;
+          right: 25px;
+          font-size: 36px;
+          margin-left: 50px;
+         }	
+
+		 .menuButton{ 
+		   font-size:30px;
+		   color:white;
+		   cursor:pointer;
+		   display: block;
+		   position:fixed;
+		   background-color:black;
+		   width:100%;
+		} 
+		 
+   }
+   
+   @media only screen and (min-width: 361px) {
+  	.navbar {           		 
+  		  overflow: auto;
+          white-space: nowrap;	 
 		  background-color: #333;
 		  position: fixed;
 		  top: 0;
-		  width: 100%;
-		 
+		  padding: 14px 16px;
+		  width: 100%;		 
 		}
+        .navbar .closebtn {
+          position: absolute;
+          display: none;
+		  top: 0;
+          right: 25px;
+          font-size: 36px;
+          margin-left: 50px;
+         }		
 		.navbar a {
-		  float: left;
-		  display: block;
+   	      float: inline-block;
 		  color: #f2f2f2;
 		  text-align: center;
 		  padding: 14px 16px;
 		  text-decoration: none;
 		  font-size: 17px;
 		}
-
 		.navbar a:hover {
 		  background: #ddd;
 		  color: black;
-		}
-
+		}  
+		.menuButton{ 
+		   display: none;
+		} 
+   }
+     body {margin:0;}
+		
+	
 		.main {
 		  padding: 16px;
 		  margin-top: 30px;
-		  height: 1500px; /* Used in this example to enable scrolling */
+		  height: 150px; /* Used in this example to enable scrolling */
 		}
-		section {padding:40px;}	
 
-		.sectionpar{ 
-				background-image: url('./imagens/paper.gif');
+
+	    .sectionpar{ 
+	 			background-image: url('./imagens/paper.gif');
 				background-repeat: repeat;margin-top:60pxg;height: 400px;
-		}
-		
-		.sectionimpar{ background-color: #333;
-		}
-
-
-	.sectionimpar{ background-color: #333;}
-	
-	.sectionpar{ 
-				background-image: url('./imagens/paper.gif');
-				background-repeat: repeat;margin-top:60pxg;height: 400px;
-		}
-	
+		}	
+   
+   section {padding:50px;}	
+  .sectionimpar{ background-color: #333;}
+   #prototipo {border: 4px solid red;}	
+            
 </style>
+<script>
+	function openNav() {
+	  document.getElementById("mySidenav").style.width = "200px";
+	}
 
-
-
+	function closeNav() {
+	  document.getElementById("mySidenav").style.width = "0";
+}
+</script>
 
 </head>
 <body>
 
-      <script>	 
-		function resizeHeight(){	 
-			var height = window.innerHeight*0.8;
-			console.log(height);
-			var sections  = document.getElementsByTagName("section");		 
-			var i;
-			for (i = 0; i < sections.length; i++) {
-				sections[i].style.height  = height;
-				console.log("indice:" +i);
-			}		  	 
-			}
-		window.addEventListener("resize", resizeHeight);	 
-	 </script>   
 
-
-
-<nav class="navbar">
-	  <a href="#Objetivos">Objetivos</a> 
+<nav id="mySidenav" class="navbar">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+	  <a href="#objetivos">Objetivos</a> 
 	  <a href="#prototipo">Protótipo</a>
 	  <a href="#prototipo">HTML Básico</a>   
 	  <a href="#javascript">Javascript</a>
@@ -88,8 +133,9 @@
 	  <a href="#referencias">Referências</a>	
 </nav> 
 
+<div class="menuButton" onclick="openNav()">&#9776;</div>
 
-<section id="Objetivos" style="background-image: url('./imagens/paper.gif');
+<section id="objetivos" style="background-image: url('./imagens/paper.gif');
 		background-repeat: repeat;margin-top:60pxg;height: 400px;">
 		<h2>Objetivos</h2>		
 		O foco de um site é a organizar conteúdos para que seja fácil de encontrar uma determinada informação. 
@@ -108,9 +154,8 @@
 	</section>
 
 	<section id="prototipo" class="sectionimpar" style="height: 400px;">
-      <h2>Protótipo</h2>
-	  
-	     <img src="./imagens/prototipo.jpg" height="300px" alt="prototipo"/>		
+      <h2>Protótipo</h2>	  
+	     <img src="./imagens/prototipo.jpg" height="150px" alt="prototipo"/>		
 	</section>  
 	<section id="basicohtml" class="sectionpar">
       <h2>Estrutura Básica do HTML</h2>	
