@@ -7,8 +7,8 @@
       echo "Voce esta logado";
       
     }
-    else if(isset($_POST['user']) && $_POST['user'] == "admin" 
-    && isset($_POST['pass']) && $_POST['pass'] == "admin"){
+    else if(isset($_POST['login']) && $_POST['login'] == "admin" 
+    && isset($_POST['senha']) && $_POST['senha'] == "admin"){
        $_SESSION["LOGIN"] = true; 
        $_SESSION["USER_NAME"] = $_POST['user'] ;
        echo "login ok";
