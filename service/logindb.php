@@ -3,7 +3,8 @@
     require "Usuario.php";
 	require "UsuarioDAO.php";
 	
-		
+    try 
+	{
     session_start(); 
     if(isset($_GET['logout'])){
        session_destroy();
@@ -11,23 +12,22 @@
     }else if(isset($_SESSION["LOGIN"])){
       echo "Voce esta logado";
       
-    }
-    else if(isset($_POST['login']) && isset($_POST['senha'])){
-				
-	   usuarioDAO = new  UsuarioDAO();
-	   $usuario  = usuarioDAO->getByLogin($_POST['login']);
+    }	
+    else if(isset($_POST['login']) && isset($_POST['senha'])){		        	
+	   $usuarioDAO = new  UsuarioDAO();
+	   $usuario  =  $usuarioDAO->getByLogin($_POST['login']);
 	   $autenticado  = $usuario->validar($senha, $login);
 	   if($autenticado) {		
 		  $_SESSION["LOGIN"] = autenticado; 
-          $_SESSION["USER_NAME"] = $_POST['user'] ;
+          $_SESSION["USER_NAME"] = $_POST['login'] ;
           echo "login ok";
 		  //header("Location: bemvindo.html");
 	   }else{
-         header('HTTP/1.0 403 Forbidden');
-         die('Voce nao esta logado' . $_SESSION["LOGIN"]);  
-		}
-    }else{
-         header('HTTP/1.0 403 Forbidden');
-         die('Voce nao esta logado' . $_SESSION["LOGIN"]);  
-    }
+          throw new Exception("Erro no login");
+	   }
+	}else throw new Exception("Erro no login");		
+    }catch(Exception $e) {
+		echo $e->getMessage();	
+	}
+	
 ?>
