@@ -1,7 +1,7 @@
 <?php
 
-    require "Usuario.php";
-	require "UsuarioDAO.php";
+    require "../modelo/Usuario.php";
+	require "../modelo/UsuarioDAO.php";
 	
     try 
 	{
