@@ -33,7 +33,7 @@
 		$url = $_GET['url'];
 		print($url);
 		if(valid_url($url)) {
-			//redirect($url);
+			redirect($url);
 			exit;
 		}else{
 			// Invalid URL. What should we do?
