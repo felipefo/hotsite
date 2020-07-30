@@ -19,7 +19,7 @@
        {
          return "Login:" . $this->login .     
        }	
-       function boolean validarSenha($senha, $login) {		     
+       function boolean validar($senha, $login) {		     
 			 if((strcmp($this->login , $login) == 0) && (strcmp($this->senha , $senha))) 
 			    return true;			
              return false;
