@@ -1,7 +1,7 @@
 <?php
 
-    require "../modelo/Usuario.php";
-	require "../modelo/UsuarioDAO.php";
+   // require "../modelo/Usuario.php";
+	//require "../modelo/UsuarioDAO.php";
 	
     try 
 	{
@@ -14,7 +14,8 @@
       
     }	
     else if(isset($_POST['login']) && isset($_POST['senha'])){		        	
-	   $usuarioDAO = new  UsuarioDAO();
+/*	  
+	  $usuarioDAO = new  UsuarioDAO();
 	   $usuario  =  $usuarioDAO->getByLogin($_POST['login']);
 	   $autenticado  = $usuario->validar($senha, $login);
 	   if($autenticado) {		
@@ -24,8 +25,9 @@
 		  //header("Location: bemvindo.html");
 	   }else{
           throw new Exception("Erro no login");
-	   }
+	   }*/
 	}else throw new Exception("Erro no login");		
+	
     }catch(Exception $e) {
 		echo $e->getMessage();	
 	}
