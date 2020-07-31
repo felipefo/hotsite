@@ -1,6 +1,6 @@
 <?php
 
-   // require "../modelo/Usuario.php";
+    require "..\modelo\Usuario.php";
 	//require "../modelo/UsuarioDAO.php";
 	echo "teste";
     try 
