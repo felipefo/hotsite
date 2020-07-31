@@ -1,7 +1,9 @@
 <?php
 
     //require_once("/root/app/hotsite/modelo/Usuario.php");
-    require_once ABSPATH.'../modelo/Usuario.php';
+	
+	echo ABSPATH;
+    //require_once ABSPATH . '../modelo/Usuario.php';
 	
    //require "../modelo/UsuarioDAO.php";
 	echo "teste";
