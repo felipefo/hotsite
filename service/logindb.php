@@ -12,18 +12,18 @@
       
     }	
     else if(isset($_POST['login']) && isset($_POST['senha'])){		        	
-/*	  
+	  
 	  $usuarioDAO = new  UsuarioDAO();
 	   $usuario  =  $usuarioDAO->getByLogin($_POST['login']);
 	   $autenticado  = $usuario->validar($senha, $login);
 	   if($autenticado) {		
-		  $_SESSION["LOGIN"] = autenticado; 
+		  $_SESSION["LOGIN"] = true; 
           $_SESSION["USER_NAME"] = $_POST['login'] ;
           echo "login ok";
 		  //header("Location: bemvindo.html");
 	   }else{
           throw new Exception("Erro no login");
-	   }*/
+	   }
 	}else throw new Exception("Erro no login");		
 	
     }catch(Exception $e) {
