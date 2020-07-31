@@ -2,7 +2,7 @@
 
    // require "../modelo/Usuario.php";
 	//require "../modelo/UsuarioDAO.php";
-	
+	echo "teste";
     try 
 	{
     session_start(); 
