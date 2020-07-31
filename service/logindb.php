@@ -3,7 +3,9 @@
    //define('__FILE__', dirname(dirname(__FILE__)));
 
    //require "../modelo/UsuarioDAO.php";
-	echo $_SERVER['DOCUMENT_ROOT'];
+   $link = $_SERVER['DOCUMENT_ROOT'] . "/hotsite/modelo/Usuario.php";
+   echo $link;
+   require $link;
     try 
 	{
     session_start(); 
