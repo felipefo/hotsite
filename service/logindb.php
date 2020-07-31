@@ -1,6 +1,7 @@
 <?php
 
    define('__ROOT__', dirname(dirname(__FILE__)));
+   echo __ROOT__;
    require_once(__ROOT__ ."..\modelo\Usuario.php";);
 
    //require "../modelo/UsuarioDAO.php";
