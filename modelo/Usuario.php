@@ -1,6 +1,6 @@
 <?php 
 
-   require "UsuarioDAO.php";
+   
 
    class Usuario
    {
