@@ -1,11 +1,6 @@
 <?php
 
-   //define('__FILE__', dirname(dirname(__FILE__)));
-
-   //require "../modelo/UsuarioDAO.php";
-   $link = $_SERVER['DOCUMENT_ROOT'] . "/hotsite/modelo/Usuario.php";
-   echo $link;
-   require $link;
+    require $_SERVER['DOCUMENT_ROOT'] . "/hotsite/modelo/Usuario.php";
     try 
 	{
     session_start(); 
