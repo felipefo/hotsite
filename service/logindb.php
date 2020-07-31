@@ -1,6 +1,7 @@
 <?php
 
     require $_SERVER['DOCUMENT_ROOT'] . "/hotsite/modelo/Usuario.php";
+	require $_SERVER['DOCUMENT_ROOT'] . "/hotsite/modelo/UsuarioDAO.php";
     try 
 	{
     session_start(); 
@@ -13,7 +14,7 @@
     }	
     else if(isset($_POST['login']) && isset($_POST['senha'])){		        	
 	  
-	  $usuarioDAO = new  UsuarioDAO();
+	  $usuarioDAO = new UsuarioDAO();
 	   $usuario  =  $usuarioDAO->getByLogin($_POST['login']);
 	   $autenticado  = $usuario->validar($senha, $login);
 	   if($autenticado) {		
