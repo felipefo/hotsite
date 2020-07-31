@@ -6,7 +6,7 @@
    {
        public  $login;
        public  $senha;
-	   
+	   /*
 	   public function setSenha( $senha) {
 		   $this->senha =$senha;
 	   }
@@ -23,6 +23,6 @@
 			 if((strcmp($this->login , $login) == 0) && (strcmp($this->senha , $senha))) 
 			    return true;			
              return false;
-	   }        		  
+	   } */       		  
    }
 ?>
