@@ -1,12 +1,9 @@
 <?php
 
-    //require_once("/root/app/hotsite/modelo/Usuario.php");
-	
-	echo ABSPATH;
-    //require_once ABSPATH . '../modelo/Usuario.php';
-	
+   //define('__FILE__', dirname(dirname(__FILE__)));
+
    //require "../modelo/UsuarioDAO.php";
-	echo "teste";
+	echo $_SERVER['DOCUMENT_ROOT'];
     try 
 	{
     session_start(); 
