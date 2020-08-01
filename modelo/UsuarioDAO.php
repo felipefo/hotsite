@@ -4,30 +4,34 @@ class UsuarioDAO
  { 
 	//$dbuser = $_ENV['MYSQL_USER'];
 	//$dbpass = $_ENV['MYSQL_PASS'];
-	$dbuser = 'admin';
-	$dbpass = 'eUa1oj4vQZfH';
+	public $dbuser = 'root';
+	public $dbpass = '';
 
 	function getByLogin($login) {				
 		try {
-			$pdo = new PDO("mysql:host=mysql;dbname=hotsite", $dbuser, $dbpass);
-			$statement = $pdo->prepare("SELECT * FROM usuario where login =" . $login);
+			$pdo = new PDO("mysql:host=localhost;dbname=hotsite", $this->dbuser, $this->dbpass);
+			$statement = $pdo->prepare("SELECT * FROM usuario where login ='" . $login . "'");
 			$statement->execute();
-			$usuarios = $statement->fetchAll(PDO::FETCH_OBJ);
+			$usuarios = $statement->fetchAll(PDO::FETCH_OBJ);                  
 			$statement->closeCursor();
+                        if(sizeof($usuarios)  == 0 ) {
+                            throw  new Exception("Nenhum usuario encontrado");
+                        }
 			$usuario = new Usuario();
+                       // var_dump($usuarios);
 			foreach ($usuarios as $record ) {
-				echo "<li>".$record->login."</li>";				
-				$usuario->setLogin($record->login);
-				$usuario->setSenha($record->senha);				
+			  $usuario->setLogin($record->login);
+			  $usuario->setSenha($record->senha);				
 			}			
 			return $usuario;			
 		} catch(PDOException $e) {
 			echo $e->getMessage();
+                        throw $e;
 		}
 	}	
-	function get() {				
+	function  get() {				
 		try {
-			$pdo = new PDO("mysql:host=mysql;dbname=hotsite", $dbuser, $dbpass);
+			$pdo = new PDO("mysql:host=localhost;dbname=hotsite", $this->dbuser, $this->dbpass);
 			$statement = $pdo->prepare("SELECT * FROM user");
 			$statement->execute();
 			$posts = $statement->fetchAll(PDO::FETCH_OBJ);
@@ -44,9 +48,9 @@ class UsuarioDAO
 	}
 	
 	
-	function save(Usuario usuario) {				
+	function save(Usuario $usuario) {				
 		try {
-			$pdo = new PDO("mysql:host=mysql;dbname=hotsite", $dbuser, $dbpass);
+			$pdo = new PDO("mysql:host=mysql;dbname=hotsite", $this->dbuser, $this->dbpass);
 			$statement = $pdo->prepare("SELECT * FROM user");
 			$statement->execute();
 			$posts = $statement->fetchAll(PDO::FETCH_OBJ);

@@ -5,8 +5,8 @@ class MysqlConnection
 
 	//$dbuser = $_ENV['MYSQL_USER'];
 	//$dbpass = $_ENV['MYSQL_PASS'];
-	$dbuser = 'admin';
-	$dbpass = 'eUa1oj4vQZfH';
+	public $dbuser = '';
+	public $dbpass = '';
 
 	function connect() {				
     try {
@@ -26,3 +26,4 @@ class MysqlConnection
 	}
 	}
 } 
+

@@ -1,7 +1,7 @@
 <?php
 
     require $_SERVER['DOCUMENT_ROOT'] . "/hotsite/modelo/Usuario.php";
-	require $_SERVER['DOCUMENT_ROOT'] . "/hotsite/modelo/UsuarioDAO.php";
+    require $_SERVER['DOCUMENT_ROOT'] . "/hotsite/modelo/UsuarioDAO.php";
     try 
 	{
     session_start(); 
@@ -16,11 +16,12 @@
 	  
 	  $usuarioDAO = new UsuarioDAO();
 	   $usuario  =  $usuarioDAO->getByLogin($_POST['login']);
-	   $autenticado  = $usuario->validar($senha, $login);
+          // var_dump($usuario);
+	   $autenticado  = $usuario->validar($_POST['login'], $_POST['senha']);
 	   if($autenticado) {		
-		  $_SESSION["LOGIN"] = true; 
-          $_SESSION["USER_NAME"] = $_POST['login'] ;
-          echo "login ok";
+	      $_SESSION["LOGIN"] = true; 
+           $_SESSION["USER_NAME"] = $_POST['login'] ;
+           echo "login ok";
 		  //header("Location: bemvindo.html");
 	   }else{
           throw new Exception("Erro no login");
