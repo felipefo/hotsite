@@ -9,11 +9,9 @@
        session_destroy();
        echo "Voce foi deslogado";
     }else if(isset($_SESSION["LOGIN"])){
-      echo "Voce esta logado";
-      
+      echo "Voce esta logado";      
     }	
-    else if(isset($_POST['login']) && isset($_POST['senha'])){		        	
-	  
+      else if(isset($_POST['login']) && isset($_POST['senha'])){		        		  
 	  $usuarioDAO = new UsuarioDAO();
 	   $usuario  =  $usuarioDAO->getByLogin($_POST['login']);
           // var_dump($usuario);
