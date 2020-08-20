@@ -71,6 +71,8 @@ class HotSiteService implements IRouter {
 
 }
 
+header("Access-Control-Allow-Origin: *");
+
 $router = new Router(new HotSiteService());
 $router->run();
 ?>
