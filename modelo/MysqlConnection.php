@@ -1,29 +1,21 @@
 <?php
 
-class MysqlConnection
- {
+class MysqlConnection {
 
-	//$dbuser = $_ENV['MYSQL_USER'];
-	//$dbpass = $_ENV['MYSQL_PASS'];
-	public $dbuser = '';
-	public $dbpass = '';
+    //$dbuser = $_ENV['MYSQL_USER'];
+    //$dbpass = $_ENV['MYSQL_PASS'];	
+    public $dbuser = 'root';
+    public $dbpass = '';
+    public $con;
 
-	function connect() {				
-    try {
-		$pdo = new PDO("mysql:host=mysql;dbname=hotsite", $dbuser, $dbpass);
-		$statement = $pdo->prepare("SELECT * FROM user");
-		$statement->execute();
-		$posts = $statement->fetchAll(PDO::FETCH_OBJ);
-		
-		echo "<h2>Posts</h2>";
-		echo "<ul>";
-		foreach ($posts as $post ) {
-			echo "<li>".$post->title."</li>";
-		}
-		echo "</ul>";
-	} catch(PDOException $e) {
-		echo $e->getMessage();
-	}
-	}
-} 
+    function getConnection() {
+        try {
+            $this->con = new PDO("mysql:host=localhost;dbname=hotsite", $this->dbuser, 
+                    $this->dbpass, array(PDO::ATTR_PERSISTENT => true));
+            return $this->con;
+        } catch (PDOException $e) {
+            echo $e->getMessage();
+        }
+    }
 
+}

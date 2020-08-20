@@ -22,7 +22,9 @@
            echo "login ok";
 		  //header("Location: bemvindo.html");
 	   }else{
-          throw new Exception("Erro no login");
+             throw new Exception("Erro no login");
+             
+          
 	   }
 	}else throw new Exception("Erro no login");		
 	

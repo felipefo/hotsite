@@ -4,6 +4,7 @@
    {
        public  $login;
        public  $senha;
+       public  $id;
 	   
 	   public function setSenha( $senha) {
 		   $this->senha =$senha;
@@ -13,6 +14,14 @@
 	      $this->login =$login;
 	   }  	  
 
+       public function setId($id) {
+         $this->id =$id;
+       }  
+       
+       public function getId() {
+         return $this->id;
+       }  
+           
        public function toString()
        {
          return "Login:" . $this->login;     
