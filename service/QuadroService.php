@@ -9,11 +9,13 @@
     public function delete() {
         throw  new Exception("Não implementado ainda"); 
     }
+    
+    
     public function get() {                            
         if (isset($_GET['hotsite_id'])) {
            $hotsite_id  = $_GET['hotsite_id'];
            $quadroDAO =  new QuadroDAO();        
-           $quadros = $quadroDAO->getByHotsiteID($hotsite_id);
+           $quadros = $quadroDAO->getByUrlID($hotsite_id);
            print json_encode($quadros);
         }else { 
             echo 'Missing hotsite id';

@@ -10,4 +10,8 @@ function Persistencia(){
 	    this.storage.listarTodos();
 	}	
 	
+        this.salvar =  function(html, id){		    
+	    this.storage.salvar();
+	}	
+	
 }
