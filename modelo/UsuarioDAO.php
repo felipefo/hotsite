@@ -23,6 +23,8 @@ class UsuarioDAO
 			foreach ($usuarios as $record ) {
 			  $usuario->setLogin($record->login);
 			  $usuario->setSenha($record->senha);				
+                          $usuario->setRole($record->role);
+                          $usuario->setId($record->id);
 			}			
 			return $usuario;			
 		} catch(PDOException $e) {

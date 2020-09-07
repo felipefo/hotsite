@@ -1,13 +1,26 @@
 <?php
 
-require_once $_SERVER['DOCUMENT_ROOT'] . "/hotsite/service/IRouter.php";
-require_once $_SERVER['DOCUMENT_ROOT'] . "/hotsite/service/Router.php";
+require_once $_SERVER['DOCUMENT_ROOT'] . "/hotsite/service/util/IRouter.php";
+require_once $_SERVER['DOCUMENT_ROOT'] . "/hotsite/service/util/Router.php";
 require_once $_SERVER['DOCUMENT_ROOT'] . "/hotsite/modelo/QuadroDAO.php";
 
 class QuadroService implements IRouter {
-
+    
+    public $role_validacao = [
+         "get" =>  [ "user" , 'admin'], 
+         "delete" => ['admin' ], 
+         "post" => ["user" , 'admin' ], 
+         "put" => ["user" , 'admin' ],         
+    ];
+    
+    public $permission = [         
+         "put" , 
+         "delete", 
+    ];
+    
     public function delete() {
         if (isset($_POST['id'])) {
+            
             $id = $_POST['id'];
             $quadroDAO = new QuadroDAO();
             $quadros = $quadroDAO->removeById($id);
@@ -62,7 +75,7 @@ class QuadroService implements IRouter {
         if (isset($_POST['id']) && isset($_POST['html']) && isset($_POST['titulo'])) {
             $html = $_POST['html'];
             $titulo = $_POST['titulo'];
-            $id = $_POST['id'];
+            $id = $_POST['id'];            
             $quadro = new Quadro();
             $quadro->setTitulo($titulo);
             $quadro->setId($id);

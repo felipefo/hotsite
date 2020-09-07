@@ -5,6 +5,7 @@
        public  $login;
        public  $senha;
        public  $id;
+       public  $role;
 	   
 	   public function setSenha( $senha) {
 		   $this->senha =$senha;
@@ -18,6 +19,15 @@
          $this->id =$id;
        }  
        
+       function getRole() {
+           return $this->role;
+       }
+
+       function setRole($role) {
+           $this->role = $role;
+       }
+
+              
        public function getId() {
          return $this->id;
        }  
@@ -27,10 +37,14 @@
          return "Login:" . $this->login;     
        }
        
-       function validar($senha, $login) {		     	
-           if((strcmp($this->login , $login) == 0) && (strcmp($this->senha , $senha) == 0)) 
-                 return true;			
-             return false;
-	   }        		  
+       function validar($senha, $login) {           
+           $salt ='hotsite'; 
+           $hash = md5($salt . $senha);           
+           if((strcmp($this->login , $login) == 0) && (strcmp($this->senha , $hash) == 0)) {
+                 return $this->getRole();			
+            }else {
+              throw new Exception("Usuario invalido");
+            }	
+       }            
    }
 ?>

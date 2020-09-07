@@ -19,6 +19,9 @@ function HotsiteVisao() {
         
         htmlTitulo += '<a href="javascript:void(0)" onclick="document.getElementById(\'adicionar_modal\').style.display = \'block\'">Adicionar Quadro</a>';
         htmlTitulo += '<a href="javascript:void(0)" onclick="document.getElementById(\'login_modal\').style.display = \'block\'">Login</a>';
+        htmlTitulo += '<a href="/hotsite/service/logindb.php?logout">Logout</a>';
+        
+        
         lista.innerHTML = htmlTitulo;
     };
 

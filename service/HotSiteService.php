@@ -2,8 +2,8 @@
 <?php
 
 require_once $_SERVER['DOCUMENT_ROOT'] . "/hotsite/modelo/HotSite.php";
-require_once $_SERVER['DOCUMENT_ROOT'] . "/hotsite/service/Router.php";
-require_once $_SERVER['DOCUMENT_ROOT'] . "/hotsite/service/IRouter.php";
+require_once $_SERVER['DOCUMENT_ROOT'] . "/hotsite/service/util/Router.php";
+require_once $_SERVER['DOCUMENT_ROOT'] . "/hotsite/service/util/IRouter.php";
 require_once $_SERVER['DOCUMENT_ROOT'] . "/hotsite/modelo/HotSiteDAO.php";
 require_once $_SERVER['DOCUMENT_ROOT'] . "/hotsite/modelo/QuadroDAO.php";
 
