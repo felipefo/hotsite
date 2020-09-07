@@ -1,7 +1,9 @@
-function PersistenciaHotsite(persistencia) {
+function PersistenciaHotsite() {
 
-    this.domain = "http://localhost/hotsite/service/hotsiteservice.php";
-    this.persistencia = persistencia;
+    this.domain = "http://localhost/hotsite/service/hotsiteservice.php";    
+    this.listaListener = new Event(this);
+    this.lista = new Array();
+    var _this= this;
 
     this.listarTodos = function () {
 
@@ -10,8 +12,8 @@ function PersistenciaHotsite(persistencia) {
         var path = urlsplit[urlsplit.length - 1];
 
         $.get(this.domain + path, function (data, status) {
-            persistencia.lista = JSON.parse(data);
-            persistencia.listaListener.notify(JSON.parse(data));
+            _this.lista = JSON.parse(data);
+            _this.listaListener.notify(JSON.parse(data));
         });
     }
 
@@ -22,8 +24,8 @@ function PersistenciaHotsite(persistencia) {
         json[id] = id;
         $.post( this.domain, JSON.stringify(json)                                                )
     	    .done(function(msg){ 			        				
-		_this.persistencia.lista = (msg);//guardando na lista
-		_this.persistencia.listaListener.notify(msg); //enviando para os observadores  					
+		_this.lista = (msg);//guardando na lista
+		_this.listaListener.notify(msg); //enviando para os observadores  					
 	  	alert("Criado com sucesso");
             }
 	    )

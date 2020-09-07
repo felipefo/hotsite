@@ -14,19 +14,20 @@ class Router implements IRouter {
     }
 
     public function run() {
-        if ($this->get()) {
-            return;
-        } else if ($this->post()) {
-            return;
-        } else if ($this->delete()) {
+        
+        if ($this->delete()) {
             return;
         } else if ($this->put()) {
             return;
-        }
+        }else if ($this->get()) {
+            return;
+        } else if ($this->post()) {
+            return;
+        } 
     }
 
     public function get() {
-        if ($_SERVER['REQUEST_METHOD'] === 'GET') {
+        if ($_SERVER['REQUEST_METHOD'] === 'GET' ) {
             $this->class->get();
             return true;
         }
@@ -35,7 +36,9 @@ class Router implements IRouter {
 
     //https://restfulapi.net/http-methods/#delete
     public function delete() {
-        if ($_SERVER['REQUEST_METHOD'] === 'DELETE') {
+        
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_SERVER['HTTP_X_HTTP_METHOD_OVERRIDE']) 
+                && $_SERVER['HTTP_X_HTTP_METHOD_OVERRIDE'] == 'delete') {
             $this->class->delete();
             return true;
         }
@@ -51,7 +54,8 @@ class Router implements IRouter {
     }
 
     public function put() {
-        if ($_SERVER['REQUEST_METHOD'] === 'PUT') {
+        if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_SERVER['HTTP_X_HTTP_METHOD_OVERRIDE']) 
+                && $_SERVER['HTTP_X_HTTP_METHOD_OVERRIDE'] === 'put') {
             $this->class->put();
             return true;
         }

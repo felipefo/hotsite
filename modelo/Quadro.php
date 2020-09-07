@@ -6,6 +6,8 @@ class Quadro {
     public $ordem;
     public $hotsite;
     public $id;
+    public $titulo;
+       
     
     public function setHtml($html) {
         $this->html = $html;
@@ -26,6 +28,15 @@ class Quadro {
         return $this->id;
     }
     
+    function getTitulo() {
+        return $this->titulo;
+    }
+
+    function setTitulo($titulo) {
+        $this->titulo = $titulo;
+    }
+
+        
     public function getHtml() {
         return $this->html;
     }

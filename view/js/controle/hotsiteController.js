@@ -2,15 +2,16 @@
 
 function HotsiteController(){
 	
-        this.hotsiteVisao = new HotsiteVisao();        
-        _this = this;
-	this.persistencia= new Persistencia();        	        
+        this.hotsiteVisao = new HotsiteVisao();               
+	this.persistencia= new  PersistenciaHotsite();        	        
+        var _this = this;
 	this.atualizarLista =function(){	 	    		
-	    this.persistencia.listarTodos();						
+	    _this.persistencia.listarTodos();						
 	}
 	this.atachListenerVisaoLoadAll= function(){             	    
-		this.persistencia.listaListener.attach(function (sender, data) {						                                                             
+		_this.persistencia.listaListener.attach(function (sender, data) {						                                                             
         	_this.hotsiteVisao.carregarTudo(data);
+                _this.hotsiteVisao.carregarMenu(data);
             }
         );
 
@@ -22,7 +23,8 @@ function HotsiteController(){
         
          this.salvar =function(id){	 	    			                                
             var html = _this.hotsiteVisao.getHtml(id);                        
-            this.persistencia.salvar(html, id);//possar representar o meu
+            var titulo = _this.hotsiteVisao.getHtml(id);                        
+            _this.persistencia.salvar(html, titulo, id);//possar representar o meu
 	}
                      	
 }
