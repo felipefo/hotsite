@@ -60,6 +60,10 @@
         <div id='listaquadros'>   </div>
        
         
+        
+        
+        
+        
          <div id="adicionar_modal" class="modal">  
             <form class="modal-content animate" action="/hotsite/service/quadroservice.php" method="post">    
                 <div class="container">
@@ -73,6 +77,20 @@
         </div>
 
         
+          <div id="editar_modal" class="modal">  
+            <div class="modal-content animate">    
+                <div class="container">
+                   <input type="hidden" id="modal_id_quadro" name="modal_id_quadro"/>
+                    <label for="modal_titulo"><b>Titulo</b></label>
+                    <input type="text" placeholder="Titulo" id="modal_titulo" name="modal_titulo"/>
+                    <label for="modal_html"><b>Conteúdo</b></label>
+                    <textarea rows="20" cols="80" placeholder="conteúdo" id="modal_html" name="modal_html"></textarea>        
+                    <button onClick="controleQuadro.salvar(this);">Salvar</button>      
+                </div>
+            </div>
+        </div>
+        
+        
         
 
         <div id="login_modal" class="modal">  
@@ -82,7 +100,7 @@
                     <input type="text" placeholder="Login" name="login" required>
                     <label for="password"><b>Senha</b></label>
                     <input type="password" placeholder="Senha" name="senha" required>        
-                    <button type="submit">Login</button>      
+                    <button type="submit">Enviar Login</button>      
                 </div>
                 <div class="container" style="background-color:#f1f1f1">
                     <button type="button" onclick="document.getElementById('login_modal').style.display = 'none'" class="cancelbtn">Cancelar</button>

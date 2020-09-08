@@ -22,10 +22,12 @@ function QuadroController(){
 	}
         
          this.salvar =function(id){	 	    			                                
-            var titulo = _this.hotsiteVisao.getTituloHtml(id);                        
-            var html = _this.hotsiteVisao.getQuadroHtml(id); 
-            var idOonly  = id.split('_html')[0];
-            _this.persistencia.salvar(html, idOonly, titulo);//possar representar o meu
+            
+             var titulo =  $('#modal_titulo').val();                        
+            var html =  $('#modal_html').val();                        
+            var id  = $('#modal_id_quadro').val();                        
+            _this.persistencia.salvar(html, id, titulo);//possar representar o meu
+            $('#editar_modal').hide();
             
 	}
         
